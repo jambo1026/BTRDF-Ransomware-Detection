@@ -12,5 +12,17 @@ This project presents a Blue Team Ransomware Defense Framework (BTRDF) that inte
 - Automated response actions
 - Risk scoring and threat classification
 
+  ## Results (In Progress)
+
+The system is currently undergoing structured testing and evaluation within a controlled virtual environment.
+
+Metrics being analyzed include:
+- Detection accuracy
+- False positive and false negative rates
+- Response time and recovery time
+- Comparative performance against baseline detection methods
+
+Final results and analysis will be added upon completion of testing.
+
 ## Author
 Valerie Alexander
