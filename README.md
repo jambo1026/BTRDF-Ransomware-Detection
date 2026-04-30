@@ -1,87 +1,85 @@
-AI-Assisted Ransomware Detection & Response Framework (BTRDF)
-
-A Blue Team–focused ransomware detection and response framework that integrates Artificial Neural Network (ANN)–based anomaly detection with real-time system telemetry to improve threat detection, automated response, and recovery strategies using Microsoft Defender and Microsoft Sentinel.
-
+AI-Assisted Ransomware Detection Framework (BTRDF)
 Overview
 
-The Blue Team Ransomware Defense Framework (BTRDF) is designed to enhance traditional endpoint detection by combining structured defensive workflows with ANN-based anomaly detection.
+This project presents the Blue Team Ransomware Defense Framework (BTRDF), a simulation-based system that integrates Artificial Neural Network (ANN)-assisted detection with existing Windows security tools (Microsoft Defender & Microsoft Sentinel) to improve ransomware detection, response, and recovery.
 
-This project simulates ransomware activity within a controlled virtual lab and processes system telemetry (e.g., file modifications and process behavior) through a custom Python pipeline. The framework evaluates system behavior, assigns a risk score, and triggers simulated response and recovery actions.
+Rather than replacing existing tools, this framework enhances their effectiveness by structuring detection outputs into a unified workflow and supporting decision-making through AI-driven analysis.
 
-The goal is to demonstrate how machine learning can augment existing Windows security tools to improve detection accuracy and response efficiency.
+ Objectives
+Improve ransomware detection using ANN-based behavioral analysis
+Reduce alert fatigue through threshold tuning and structured analysis
+Integrate detection, response, and recovery into a unified framework
+Demonstrate practical application through a real-time dashboard
+ Key Features
+ANN-based anomaly detection using system activity (file modifications, process activity)
+Simulation of ransomware behavior in a controlled environment
+Real-time dashboard for threat monitoring and analysis
+Risk classification and automated response actions
+FFRecovery simulation for recovery processes
+Performance metrics tracking (accuracy, false positive rate, response time)
+ How It Works
+Simulated system activity is generated (normal and ransomware behavior)
+Data is processed by the ANN model
+The model outputs a prediction score (0–1)
+A classification threshold determines if activity is suspicious
+The BTRDF framework executes:
+Detection
+Analysis
+Response
+Recovery
+ Results Summary
+ANN significantly improved detection sensitivity compared to baseline methods
+Default threshold (0.5) resulted in high false positive rates (~70%)
+Overall accuracy reached approximately 80%
+Threshold tuning improved classification balance and reduced unnecessary alerts
+Demonstrates the tradeoff between detection accuracy and alert volume
+ System Demonstration
 
-Key Features
-Telemetry-Based Activity Analysis
-Monitors system behavior such as file modification volume and process activity
-ANN-Based Detection Model
-Utilizes a trained Artificial Neural Network to generate a prediction score indicating likelihood of ransomware activity
-Risk Scoring & Classification
-Assigns severity levels (e.g., Low, Medium, High) based on model output
-Automated Response Actions
-Simulates defensive actions such as system isolation and process termination
-Recovery Simulation (FFRecovery)
-Demonstrates file restoration workflow following detected ransomware activity
-SIEM & EDR Integration (Conceptual + Telemetry Alignment)
-Aligns detection logic with capabilities of Microsoft Defender and Microsoft Sentinel
-Tech Stack
-Languages: Python
-Security Tools: Microsoft Defender, Microsoft Sentinel
-Environment: Windows 11, Virtualized lab (VMware)
-Core Concepts:
-SIEM monitoring & alert analysis
-Endpoint telemetry analysis
-Incident response workflows
-Anomaly detection (ANN)
-Detection Pipeline (Conceptual Flow)
-Collect system activity metrics
-File modifications
-Process activity
-Process telemetry through ANN model
-Generate prediction score
-Classify risk level
-Trigger response action
-Isolate system
-Kill suspicious process
-Execute recovery simulation
-Restore files (FFRecovery model)
-Sample Output
-{
-  "activity": {
-    "file_modifications": 831,
-    "process_activity": 34
-  },
-  "prediction_score": 0.8338,
-  "risk_level": "High",
-  "response_action": "Isolate System & Kill Process",
-  "recovery_action": "Restore files using FFRecovery simulation",
-  "suspicious": true
-}
-Results (In Progress)
+(Add your screenshots in the screenshots/ folder and they will display here)
 
-The framework is currently undergoing structured testing across multiple simulated ransomware scenarios.
-
-Metrics being evaluated:
-
-Detection accuracy
-False positive / false negative rates
-Response effectiveness
-Recovery time simulation
-
-Preliminary observations indicate high detection sensitivity, with increased false positive rates—highlighting the importance of tuning ANN-based anomaly detection models in security environments.
-
-Final results and performance analysis will be included upon completion of testing.
-
-Project Status
-
-🚧 In Progress — Final evaluation and manuscript development underway
-
-Disclaimer
-
-This project is for educational and research purposes only.
-All simulations are conducted in a controlled virtual environment. No real systems or data are targeted.
-
-Author
+![Dashboard](screenshots/dashboard.png)
+![Threat Analysis](screenshots/threat_analysis.png)
+![Live Log](screenshots/live_log.png)
+![Performance Chart](screenshots/chart.png)
+Performance Metrics
+Accuracy: ~80%
+False Positive Rate: ~70% (default threshold)
+Real-time analysis: ~0.13 seconds
+Response time: ~2–2.5 seconds
+Recovery time: ~2–3.5 seconds
+Technologies Used
+Python (Flask)
+TensorFlow / Keras
+NumPy
+HTML/CSS (frontend dashboard)
+VMware (virtual lab environment)
+Microsoft Defender & Microsoft Sentinel (simulated integration)
+ Project Structure
+BTRDF-Ransomware-Detection/
+│
+├── app.py
+├── model/
+├── data/
+├── templates/
+│   └── index.html
+├── static/
+├── screenshots/
+├── docs/
+│   ├── paper.pdf
+│   └── poster.pdf
+├── requirements.txt
+└── README.md
+ Future Work
+Integration with real-world datasets and telemetry
+Advanced models (LSTM, deep learning architectures)
+Dynamic threshold tuning
+Direct integration with SIEM/EDR platforms
+Automated response playbooks
+Documentation
+Research Paper: docs/paper.pdf
+Poster: docs/poster.pdf
+ Author
 
 Valerie Alexander
-Cybersecurity Student — SUNY Brockport
+Cybersecurity Student – SUNY Brockport
 GitHub: https://github.com/jambo1026
