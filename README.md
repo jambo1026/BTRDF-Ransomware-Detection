@@ -1,78 +1,87 @@
 AI-Assisted Ransomware Detection & Response Framework (BTRDF)
 
-A Blue Team cybersecurity project focused on improving ransomware detection, response, and recovery using Artificial Neural Networks (ANN) and native Windows security tools, including Microsoft Defender and Microsoft Sentinel.
+A Blue Team–focused ransomware detection and response framework that integrates Artificial Neural Network (ANN)–based anomaly detection with real-time system telemetry to improve threat detection, automated response, and recovery strategies using Microsoft Defender and Microsoft Sentinel.
 
 Overview
 
-The Blue Team Ransomware Defense Framework (BTRDF) is designed to enhance traditional ransomware detection by combining structured defensive strategies with ANN-based anomaly detection.
+The Blue Team Ransomware Defense Framework (BTRDF) is designed to enhance traditional endpoint detection by combining structured defensive workflows with ANN-based anomaly detection.
 
-This project demonstrates how existing security tools can be orchestrated with machine learning techniques to improve:
+This project simulates ransomware activity within a controlled virtual lab and processes system telemetry (e.g., file modifications and process behavior) through a custom Python pipeline. The framework evaluates system behavior, assigns a risk score, and triggers simulated response and recovery actions.
 
-Early detection of ransomware activity
-Automated response actions
-System recovery strategies
-
-The framework is tested within a controlled virtual lab environment simulating real-world ransomware attack scenarios.
+The goal is to demonstrate how machine learning can augment existing Windows security tools to improve detection accuracy and response efficiency.
 
 Key Features
-ANN-Based Anomaly Detection
-Identifies suspicious system behavior using machine learning–driven pattern recognition
-SIEM & EDR Integration
-Utilizes Microsoft Defender and Microsoft Sentinel for telemetry collection and analysis
-Simulated Attack Environment
-Virtual lab designed to replicate ransomware behavior and defensive monitoring
+Telemetry-Based Activity Analysis
+Monitors system behavior such as file modification volume and process activity
+ANN-Based Detection Model
+Utilizes a trained Artificial Neural Network to generate a prediction score indicating likelihood of ransomware activity
+Risk Scoring & Classification
+Assigns severity levels (e.g., Low, Medium, High) based on model output
 Automated Response Actions
-Includes simulated containment actions such as system isolation and process termination
-Risk Scoring & Threat Classification
-Assigns severity levels based on detected activity patterns
+Simulates defensive actions such as system isolation and process termination
+Recovery Simulation (FFRecovery)
+Demonstrates file restoration workflow following detected ransomware activity
+SIEM & EDR Integration (Conceptual + Telemetry Alignment)
+Aligns detection logic with capabilities of Microsoft Defender and Microsoft Sentinel
 Tech Stack
 Languages: Python
 Security Tools: Microsoft Defender, Microsoft Sentinel
 Environment: Windows 11, Virtualized lab (VMware)
-Concepts:
-SIEM monitoring
-Incident response
-Anomaly detection
-Threat modeling
-Project Structure (Optional – update if you add files later)
-/btrdf-project
-│── data/                # Simulated telemetry data
-│── models/              # ANN model(s)
-│── scripts/             # Detection & processing logic
-│── results/             # Output logs and evaluation results
-│── README.md
+Core Concepts:
+SIEM monitoring & alert analysis
+Endpoint telemetry analysis
+Incident response workflows
+Anomaly detection (ANN)
+Detection Pipeline (Conceptual Flow)
+Collect system activity metrics
+File modifications
+Process activity
+Process telemetry through ANN model
+Generate prediction score
+Classify risk level
+Trigger response action
+Isolate system
+Kill suspicious process
+Execute recovery simulation
+Restore files (FFRecovery model)
+Sample Output
+{
+  "activity": {
+    "file_modifications": 831,
+    "process_activity": 34
+  },
+  "prediction_score": 0.8338,
+  "risk_level": "High",
+  "response_action": "Isolate System & Kill Process",
+  "recovery_action": "Restore files using FFRecovery simulation",
+  "suspicious": true
+}
 Results (In Progress)
 
-The system is currently undergoing structured testing and evaluation within a controlled virtual environment.
+The framework is currently undergoing structured testing across multiple simulated ransomware scenarios.
 
-Metrics being analyzed include:
+Metrics being evaluated:
 
 Detection accuracy
-False positive and false negative rates
-Response time and recovery time
-Comparative performance against baseline detection methods
+False positive / false negative rates
+Response effectiveness
+Recovery time simulation
 
-Preliminary findings indicate a tradeoff between detection sensitivity and false positive rates, highlighting the challenges of tuning anomaly-based detection models.
+Preliminary observations indicate high detection sensitivity, with increased false positive rates—highlighting the importance of tuning ANN-based anomaly detection models in security environments.
 
-Final results and full analysis will be added upon completion of testing.
+Final results and performance analysis will be included upon completion of testing.
 
 Project Status
 
-🚧 In Progress — Final evaluation and documentation underway
+🚧 In Progress — Final evaluation and manuscript development underway
 
 Disclaimer
 
 This project is for educational and research purposes only.
-All testing is conducted in a controlled lab environment. No real systems or data are targeted.
+All simulations are conducted in a controlled virtual environment. No real systems or data are targeted.
 
 Author
 
 Valerie Alexander
 Cybersecurity Student — SUNY Brockport
 GitHub: https://github.com/jambo1026
-- Comparative performance against baseline detection methods
-
-Final results and analysis will be added upon completion of testing.
-
-## Author
-Valerie Alexander
